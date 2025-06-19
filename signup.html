@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - BharatMart</title>
+    <link rel="stylesheet" href="subhash.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container" style="margin-top: 30px; max-width: 500px;">
+            <div class="form-card">
+                <div class="form-header">
+                    <a href="index.html"
+                        style="color: #ff6b35; text-decoration: none; display: inline-flex; align-items: center; margin-bottom: 20px;">
+                        <i class="fas fa-arrow-left" style="margin-right: 10px;"></i>
+                        Back to Home
+                    </a>
+                    <h1>Join BharatMart</h1>
+                    <p style="color: #666; margin-bottom: 0;">Create your account to start shopping</p>
+                </div>
+
+                <form id="signUpForm">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number</label>
+                        <input type="tel" id="signupPhone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="signupPassword" name="password" placeholder="Create a password"
+                                required>
+                            <button type="button" id="toggleSignupPassword"
+                                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #666;">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="confirmPassword" name="confirmPassword"
+                                placeholder="Confirm your password" required>
+                            <button type="button" id="toggleConfirmPassword"
+                                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #666;">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label
+                            style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #666; cursor: pointer;">
+                            <input type="checkbox" id="agreeTerms" name="agreeTerms" required style="margin-top: 2px;">
+                            <span>I agree to the <a href="#" style="color: #ff6b35;">Terms & Conditions</a> and <a
+                                    href="#" style="color: #ff6b35;">Privacy Policy</a></span>
+                        </label>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label
+                            style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #666; cursor: pointer;">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span>Subscribe to our newsletter for deals and updates</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Create Account</button>
+                </form>
+
+                <div style="margin: 20px 0; text-align: center; position: relative;">
+                    <div style="height: 1px; background: #e5e5e5;"></div>
+                    <span
+                        style="background: white; padding: 0 15px; color: #666; font-size: 14px; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);">
+                        Or sign up with
+                    </span>
+                </div>
+
+                <!-- Social Sign Up -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+                    <button type="button" class="social-btn" onclick="signUpWithGoogle()"
+                        style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border: 1px solid #e5e5e5; border-radius: 5px; background: white; cursor: pointer;">
+                        <i class="fab fa-google" style="color: #db4437;"></i>
+                        Google
+                    </button>
+                    <button type="button" class="social-btn" onclick="signUpWithFacebook()"
+                        style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border: 1px solid #e5e5e5; border-radius: 5px; background: white; cursor: pointer;">
+                        <i class="fab fa-facebook" style="color: #3b5998;"></i>
+                        Facebook
+                    </button>
+                </div>
+
+                <div class="auth-links">
+                    <span style="color: #666;">Already have an account? </span>
+                    <a href="signin.html">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password toggle functions
+        document.getElementById('toggleSignupPassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('signupPassword');
+            const icon = this.querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                icon.className = 'fas fa-eye';
+            }
+        });
+
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('confirmPassword');
+            const icon = this.querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                icon.className = 'fas fa-eye';
+            }
+        });
+
+        // Form submission
+        document.getElementById('signUpForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const signupData = Object.fromEntries(formData);
+
+            // Validation
+            if (signupData.password !== signupData.confirmPassword) {
+                alert("Passwords don't match!");
+                return;
+            }
+
+            if (!signupData.agreeTerms) {
+                alert('Please agree to the terms and conditions');
+                return;
+            }
+
+            if (signupData.password.length < 6) {
+                alert('Password must be at least 6 characters long');
+                return;
+            }
+
+            // Simulate account creation
+            localStorage.setItem('user', JSON.stringify({
+                email: signupData.email,
+                name: signupData.firstName + ' ' + signupData.lastName,
+                phone: signupData.phone
+            }));
+
+            alert('Account created successfully!');
+            window.location.href = 'index.html';
+        });
+
+        // Social sign up functions
+        function signUpWithGoogle() {
+            alert('Google sign up would be implemented here');
+        }
+
+        function signUpWithFacebook() {
+            alert('Facebook sign up would be implemented here');
+        }
+    </script>
+</body>
+
+</html>

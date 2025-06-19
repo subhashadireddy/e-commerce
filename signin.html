@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - BharatMart</title>
+    <link rel="stylesheet" href="subhash.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container" style="margin-top: 50px;">
+            <div class="form-card">
+                <div class="form-header">
+                    <a href="index.html"
+                        style="color: #ff6b35; text-decoration: none; display: inline-flex; align-items: center; margin-bottom: 20px;">
+                        <i class="fas fa-arrow-left" style="margin-right: 10px;"></i>
+                        Back to Home
+                    </a>
+                    <h1>Welcome Back!</h1>
+                    <p style="color: #666; margin-bottom: 0;">Sign in to your BharatMart account</p>
+                </div>
+
+                <!-- Login Method Toggle -->
+                <div style="display: flex; background: #f3f4f6; padding: 4px; border-radius: 8px; margin-bottom: 20px;">
+                    <button type="button" class="login-method-btn active" data-method="email"
+                        style="flex: 1; padding: 10px; border: none; border-radius: 6px; background: white; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </button>
+                    <button type="button" class="login-method-btn" data-method="phone"
+                        style="flex: 1; padding: 10px; border: none; border-radius: 6px; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; color: #666;">
+                        <i class="fas fa-phone"></i>
+                        Phone
+                    </button>
+                </div>
+
+                <form id="signInForm">
+                    <div class="form-group" id="emailGroup">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group" id="phoneGroup" style="display: none;">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="password" name="password" placeholder="Enter your password"
+                                required>
+                            <button type="button" id="togglePassword"
+                                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #666;">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <a href="forgot-password.html" style="color: #ff6b35; text-decoration: none; font-size: 14px;">
+                            Forgot Password?
+                        </a>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Sign In</button>
+                </form>
+
+                <div style="margin: 20px 0; text-align: center; position: relative;">
+                    <div style="height: 1px; background: #e5e5e5;"></div>
+                    <span
+                        style="background: white; padding: 0 15px; color: #666; font-size: 14px; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);">
+                        Or continue with
+                    </span>
+                </div>
+
+                <!-- Social Login -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+                    <button type="button" class="social-btn" onclick="signInWithGoogle()"
+                        style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border: 1px solid #e5e5e5; border-radius: 5px; background: white; cursor: pointer;">
+                        <i class="fab fa-google" style="color: #db4437;"></i>
+                        Google
+                    </button>
+                    <button type="button" class="social-btn" onclick="signInWithFacebook()"
+                        style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border: 1px solid #e5e5e5; border-radius: 5px; background: white; cursor: pointer;">
+                        <i class="fab fa-facebook" style="color: #3b5998;"></i>
+                        Facebook
+                    </button>
+                </div>
+
+                <div class="auth-links">
+                    <span style="color: #666;">Don't have an account? </span>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Login method toggle
+        document.querySelectorAll('.login-method-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const method = this.getAttribute('data-method');
+
+                // Update button styles
+                document.querySelectorAll('.login-method-btn').forEach(b => {
+                    b.classList.remove('active');
+                    b.style.background = 'transparent';
+                    b.style.color = '#666';
+                });
+
+                this.classList.add('active');
+                this.style.background = 'white';
+                this.style.color = '#333';
+
+                // Show/hide form groups
+                if (method === 'email') {
+                    document.getElementById('emailGroup').style.display = 'block';
+                    document.getElementById('phoneGroup').style.display = 'none';
+                    document.getElementById('email').required = true;
+                    document.getElementById('phone').required = false;
+                } else {
+                    document.getElementById('emailGroup').style.display = 'none';
+                    document.getElementById('phoneGroup').style.display = 'block';
+                    document.getElementById('email').required = false;
+                    document.getElementById('phone').required = true;
+                }
+            });
+        });
+
+        // Password toggle
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                icon.className = 'fas fa-eye';
+            }
+        });
+
+        // Form submission
+        document.getElementById('signInForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const loginData = Object.fromEntries(formData);
+
+            // Simple validation
+            if (document.getElementById('emailGroup').style.display !== 'none' && !loginData.email) {
+                alert('Please enter your email');
+                return;
+            }
+
+            if (document.getElementById('phoneGroup').style.display !== 'none' && !loginData.phone) {
+                alert('Please enter your phone number');
+                return;
+            }
+
+            if (!loginData.password) {
+                alert('Please enter your password');
+                return;
+            }
+
+            // Simulate sign in
+            localStorage.setItem('user', JSON.stringify({
+                email: loginData.email || loginData.phone,
+                name: 'User'
+            }));
+
+            alert('Sign in successful!');
+            window.location.href = 'index.html';
+        });
+
+        // Social login functions
+        function signInWithGoogle() {
+            alert('Google sign in would be implemented here');
+        }
+
+        function signInWithFacebook() {
+            alert('Facebook sign in would be implemented here');
+        }
+    </script>
+</body>
+
+</html>

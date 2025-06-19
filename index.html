@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BharatMart - Your Trusted Online Shopping Destination</title>
+    <meta name="description" content="Shop the best products at unbeatable prices. Electronics, Fashion, Home & Kitchen, Books, Sports, Beauty and more. Free delivery across India.">
+    <link rel="stylesheet" href="subhash.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                🎉 Free Delivery on orders above ₹499 | COD Available
+            </div>
+        </div>
+
+        <div class="main-header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">B</div>
+                        <span class="logo-text">BharatMart</span>
+                    </a>
+
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search for products, brands and more..." id="searchInput">
+                        <button class="search-btn" onclick="performSearch()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+
+                    <div class="header-actions">
+                        <a href="signin.html" class="header-action">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                        <a href="wishlist.html" class="header-action">
+                            <i class="fas fa-heart"></i>
+                            <span>Wishlist</span>
+                        </a>
+                        <a href="cart.html" class="header-action">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Cart</span>
+                            <span class="cart-count" id="cartCount">3</span>
+                        </a>
+                        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                            <i class="fas fa-bars" id="menuIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mobile-search">
+                    <input type="text" placeholder="Search products...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="container">
+                <div class="nav-links">
+                    <a href="electronics.html" class="category-card">
+                        <img src="images/categories/electronics.jpg" alt="Electronics">
+                        <h3>Electronics</h3>                </a>
+                        <a href="fashion.html" class="category-card">
+                            <img src="images/categories/fashion.jpg" alt="Fashion">
+                            <h3>Fashion</h3>                    </a>
+                    <a href="home-kitchen.html" class="category-card">
+                        <img src="images/categories/home-kitchen.jpg" alt="Fashion">
+                        <h3>Home & Kitchen</h3>  </a>
+                    <a href="books.html" class="category-card" >
+                        <img src="images/categories/books.jpg" alt="Electronics">
+                        <h3>Books</h3>   </a>
+                    <a href="sports.html" class="category-card" >
+                        <img src="images/categories/sports.jpg" alt="Electronics">
+                        <h3>Sports</h3>   </a>
+                    <a href="beauty.html"  class="category-card" >
+                        <img src="images/categories/beauty.jpg" alt="ed">
+                        <h3>Beauty</h3>  </a>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="mobile-menu" id="mobileMenu">
+                    <div class="mobile-menu-actions">
+                        <a href="auth/signin.html" class="mobile-action">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                        <a href="wishlist.html" class="mobile-action">
+                            <i class="fas fa-heart"></i>
+                            <span>Wishlist</span>
+                        </a>
+                        <a href="cart.html" class="mobile-action">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Cart</span>
+                            <span class="cart-count">3</span>
+                        </a>
+                    </div>
+                    <div class="mobile-nav-links">
+                        <a href="electronics.html">Electronics</a>
+                        <a href="fashion.html">Fashion</a>
+                        <a href="home-kitchen.html">Home & Kitchen</a>
+                        <a href="books.html">Books</a>
+                        <a href="sports.html">Sports</a>
+                        <a href="beauty.html">Beauty</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-slider" id="heroSlider">
+                <div class="hero-slide active" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h1>Diwali Special Sale</h1>
+                                <p>Up to 70% Off on Electronics</p>
+                                <button class="cta-btn">Shop Now</button>
+                            </div>
+                            <div class="hero-image">
+                                <img src="images/hero/diwali-sale.jpeg" alt="Electronics Sale">
+                            </div>
+                            <div class="hero-image">
+                                <img src="images/hero/fashion-sale.jpeg" alt="Fashion Sale">
+                            </div>
+                            <div class="hero-image">
+                                <img src="images/hero/diwali-sale.jpeg" alt="Electronics Sale">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-slide" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h1>Fashion Fiesta</h1>
+                                <p>Latest Trends at Best Prices</p>
+                                <button class="cta-btn">Explore Fashion</button>
+                            </div>
+                            <div class="hero-image">
+                                <img src="images/hero/fashion-sale.jpeg" alt="Fashion Sale">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-slide" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h1>Home Makeover</h1>
+                                <p>Transform Your Space</p>
+                                <button class="cta-btn">Shop Home</button>
+                            </div>
+                            <div class="hero-image">
+                                <img src="images/hero/home-sale.jpeg" alt="Home Sale">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="hero-nav prev" onclick="changeSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="hero-nav next" onclick="changeSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="hero-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section> -->
+
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">Shop by Category</h2>
+                <div class="categories-grid">
+                    <a href="electronics.html" class="category-card electronics">
+                        <img src="images/categories/electronics.jpg" alt="Electronics">
+                        <h3>Electronics</h3>
+                    </a>
+                    <a href="fashion.html" class="category-card fashion">
+                        <img src="images/categories/fashion.jpg" alt="Fashion">
+                        <h3>Fashion</h3>
+                    </a>
+                    <a href="home-kitchen.html" class="category-card home">
+                        <img src="images/categories/home-kitchen.jpg" alt="Home & Kitchen">
+                        <h3>Home & Kitchen</h3>
+                    </a>
+                    <a href="books.html" class="category-card books">
+                        <img src="images/categories/books.jpg" alt="Books">
+                        <h3>Books</h3>
+                    </a>
+                    <a href="sports.html" class="category-card sports">
+                        <img src="images/categories/sports.jpg" alt="Sports">
+                        <h3>Sports</h3>
+                    </a>
+                    <a href="beauty.html" class="category-card beauty">
+                        <img src="images/categories/beauty.jpg" alt="Beauty">
+                        <h3>Beauty</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Products</h2>
+                    <a href="products.html" class="view-all-btn">View All</a>
+                </div>
+                <div class="products-grid" id="featuredProducts">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">B</div>
+                        <span class="logo-text">BharatMart</span>
+                    </div>
+                    <p>Your trusted online shopping destination for quality products at the best prices across India.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="bulk-orders.html">Bulk Orders</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="returns.html">Returns & Refunds</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="track-order.html">Track Your Order</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>1800-123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@bharatmart.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Business District,<br>Mumbai, Maharashtra 400001</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">© 2024 BharatMart. All rights reserved.</div>
+                    <div class="footer-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="cookies.html">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
